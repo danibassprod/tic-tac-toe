@@ -1,9 +1,9 @@
 const gameBoard = {
     // Each section of the gameboard (9 in total) is represented in this array.
     // Columns are represented by numbers, rows by letters.
-    gameBoard: ['', '', '',
-                '', '', '',
-                '', '', '']
+    gameBoard: ['O', '', '',
+                '', 'O', '',
+                '', '', 'O']
 }
 
 function createPlayer(name, symbol){
@@ -121,4 +121,14 @@ const gameStatus = (function(){
     }
 
     return { checkScoreAnnounceWinner, checkGameBoardStatus }
+})();
+
+const gameDisplay = (function(){
+    const gameBoardDOM = document.querySelectorAll('.slot')
+    function displayCurrentGameBoard (){
+        gameBoardDOM.forEach((currentElement, currentIndex) => {
+            currentElement.textContent = gameBoard.gameBoard[currentIndex]
+        })
+    };
+    return { displayCurrentGameBoard }
 })();
