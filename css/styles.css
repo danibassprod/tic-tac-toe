@@ -79,10 +79,11 @@ button[type="button"] {
     grid-area: middle;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     place-items: center;
     gap: 1px;
     border: 1px solid var(--font-color);
-    font-size: 50px;
+    font-size: 6vw;
     background-color: var(--font-color);
     > div {
         width: 100%;
@@ -90,6 +91,10 @@ button[type="button"] {
         display: grid;
         place-content: center;
         background-color: var(--bg-color);
+    }
+    > div:hover {
+        filter: brightness(150%);
+        cursor: pointer;
     }
 }
 
