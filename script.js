@@ -1,9 +1,9 @@
 const gameBoard = {
-    // Each section of the gameboard (9 in total) is represented in this array.
+    // Each slot of the gameboard (9 in total) is represented in this array.
     // Columns are represented by numbers, rows by letters.
-    gameBoard: ['O', '', '',
-                '', 'O', '',
-                '', '', 'O']
+    gameBoard: ['', '', '',
+                '', '', '',
+                '', '', '']
 }
 
 function createPlayer(name, symbol){
@@ -120,8 +120,31 @@ const gameStatus = (function(){
         }
     }
 
-    return { checkScoreAnnounceWinner, checkGameBoardStatus }
+    const gameBoardDOM = document.querySelectorAll('.slot')
+
+    function placePlayerSymbol(){
+        let turnCounter = 0;
+        gameBoardDOM.forEach((slot, index) => slot.addEventListener('click', function(){
+            function checkPlayerTurn(){
+                if (turnCounter % 2 === 0) {
+                    turnCounter++
+                    gameBoard.gameBoard[index] = 'O'
+                    return 'O'
+                } else {
+                    turnCounter++
+                    gameBoard.gameBoard[index] = 'X'
+                    return 'X'
+                }
+            }
+            this.textContent = checkPlayerTurn();
+            console.log(turnCounter)
+        }))
+    }
+    
+    return { checkScoreAnnounceWinner, checkGameBoardStatus, placePlayerSymbol }
 })();
+
+gameStatus.placePlayerSymbol();
 
 const gameDisplay = (function(){
     const gameBoardDOM = document.querySelectorAll('.slot')
