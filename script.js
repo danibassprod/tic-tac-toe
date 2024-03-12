@@ -50,102 +50,134 @@ const gameStatus = (function(){
         // Checks if row A is filled with X or O
         if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[1] === 'X' && gameBoard.gameBoard[2] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[1] === 'O' && gameBoard.gameBoard[2] === 'O'){
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks row B
         if (gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[5] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[3] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[5] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks row C
         if (gameBoard.gameBoard[6] === 'X' && gameBoard.gameBoard[7] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[6] === 'O' && gameBoard.gameBoard[7] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks column 1
 
         if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[6] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
             
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[3] === 'O' && gameBoard.gameBoard[6] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks column 2
 
         if (gameBoard.gameBoard[1] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[7] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[1] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[7] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks column 3
 
         if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[5] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[2] === 'O' && gameBoard.gameBoard[5] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Checks for diagonal lines starting from index 0 to 8
 
         if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
 
         // Check for diagonal lines starting from index 2 to 6
 
         if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[6] === 'X') {
             playerA.increaseScore()
-            alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
 
         } else if (gameBoard.gameBoard[2] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[6] === 'O') {
             playerB.increaseScore()
-            alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
-            resetCurrentGame()
+            setTimeout(() => {
+                alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
+                resetCurrentGame()
+            })
         }
     }
 
