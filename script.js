@@ -19,7 +19,7 @@ const playerA = createPlayer('Player A', 'X')
 const playerB = createPlayer('Player B', 'O')
 
 const gameStatus = (function(){
-
+    let turnCounter = 0;
     function checkScoreAnnounceWinner(){
         if (playerA.getScore() === playerB.getScore() && playerA.getScore() === 3 && playerB.getScore() === 3) {
             console.log('Its a tie!')
@@ -123,24 +123,25 @@ const gameStatus = (function(){
     const gameBoardDOM = document.querySelectorAll('.slot')
 
     function placePlayerSymbol(){
-        let turnCounter = 0;
         gameBoardDOM.forEach((slot, index) => slot.addEventListener('click', function(){
-            function checkPlayerTurn(){
-                if (turnCounter % 2 === 0) {
+            function checkPlayerTurnGetSymbol(){
+                if (turnCounter % 2 === 0 && gameBoard.gameBoard[index].length === 0) {
                     turnCounter++
                     gameBoard.gameBoard[index] = 'O'
-                    return 'O'
-                } else {
+                    slot.textContent = 'O'
+                } else if (turnCounter & 2 !== 0 && gameBoard.gameBoard[index].length === 0) {
                     turnCounter++
                     gameBoard.gameBoard[index] = 'X'
-                    return 'X'
+                    slot.textContent = 'X'
                 }
             }
-            this.textContent = checkPlayerTurn();
+            checkPlayerTurnGetSymbol()
+            checkGameBoardStatus()
+            checkScoreAnnounceWinner()
             console.log(turnCounter)
         }))
     }
-    
+
     return { checkScoreAnnounceWinner, checkGameBoardStatus, placePlayerSymbol }
 })();
 
