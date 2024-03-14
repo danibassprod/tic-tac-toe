@@ -10,8 +10,9 @@ function createPlayer(name, symbol){
     let playerSymbol = symbol;
     let score = 0;
     function increaseScore(){ score++ }
+    function resetScore(){ score = 0 }
     function getScore(){ return score }
-    return { name, increaseScore, getScore, playerSymbol }
+    return { name, increaseScore, resetScore, getScore, playerSymbol }
 }
 
 const playerA = createPlayer('Player A', 'X')
@@ -34,13 +35,14 @@ const gameStatus = (function(){
                 }
             }
             checkPlayerTurnGetSymbol()
-            checkGameBoardStatus()
             checkScoreAnnounceWinner()
-            console.log(turnCounter)
+            checkGameBoardStatus()
+            // console.log(turnCounter)
         }))
     }
 
     function checkGameBoardStatus(){
+        
         function resetCurrentGame(){
             gameBoard.gameBoard.fill('')
             gameBoardDOM.forEach(slot => slot.textContent = '')
@@ -183,13 +185,19 @@ const gameStatus = (function(){
 
     function checkScoreAnnounceWinner(){
         if (playerA.getScore() === playerB.getScore() && playerA.getScore() === 3 && playerB.getScore() === 3) {
-            console.log('Its a tie!')
+            alert('Its a tie!')
+            playerA.resetScore()
+            playerB.resetScore()
         }
 
         if (playerA.getScore() > playerB.getScore() && playerA.getScore() === 3) {
-            console.log('Player A wins!')
+            alert('Player A wins!')
+            playerA.resetScore()
+            playerB.resetScore()
         } else if (playerB.getScore() > playerA.getScore() && playerB.getScore() === 3) {
-            console.log('Player B wins!')
+            alert('Player B wins!')
+            playerA.resetScore()
+            playerB.resetScore()
         }
     }
 
