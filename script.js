@@ -20,6 +20,12 @@ const playerA = createPlayer('Player A', 'X')
 const playerB = createPlayer('Player B', 'O')
 
 const gameStatus = (function(){
+    const modal = document.querySelector('dialog')
+    modal.showModal()
+
+    const closeBtn = document.querySelector('.close-button')
+    closeBtn.addEventListener('click', () => modal.close())
+    
     let turnCounter = 0;
     function placePlayerSymbol(){
         gameBoardDOM.forEach((slot, index) => slot.addEventListener('click', function(){
@@ -37,12 +43,12 @@ const gameStatus = (function(){
             checkPlayerTurnGetSymbol()
             checkScoreAnnounceWinner()
             checkGameBoardStatus()
-            // console.log(turnCounter)
         }))
     }
 
     function checkGameBoardStatus(){
         
+        // Clears gameboard and resets turn counter.
         function resetCurrentGame(){
             gameBoard.gameBoard.fill('')
             gameBoardDOM.forEach(slot => slot.textContent = '')
@@ -184,22 +190,22 @@ const gameStatus = (function(){
     }
 
     function checkScoreAnnounceWinner(){
-        if (playerA.getScore() === playerB.getScore() && playerA.getScore() === 3 && playerB.getScore() === 3) {
-            alert('Its a tie!')
+        if (playerA.getScore() === 3 && playerB.getScore() === 3 && playerA.getScore() === playerB.getScore()){
+            console.log('You are tied!')
             playerA.resetScore()
             playerB.resetScore()
-        }
-
-        if (playerA.getScore() > playerB.getScore() && playerA.getScore() === 3) {
-            alert('Player A wins!')
+        } else if (playerA.getScore() === 4 && playerA.getScore() > playerB.getScore()) {
+            console.log('Player A Wins!')
             playerA.resetScore()
             playerB.resetScore()
-        } else if (playerB.getScore() > playerA.getScore() && playerB.getScore() === 3) {
-            alert('Player B wins!')
+        } else if (playerB.getScore() === 4 && playerB.getScore() > playerA.getScore()) {
+            console.log('Player B Wins!')
             playerA.resetScore()
             playerB.resetScore()
         }
     }
+
+    setInterval(checkScoreAnnounceWinner, 1000)
 
     const gameBoardDOM = document.querySelectorAll('.slot')
 
