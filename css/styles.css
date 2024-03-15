@@ -44,6 +44,10 @@ button { cursor: pointer; }
         justify-content: center;
         align-items: center;
         gap: 1vw;
+        > button {
+            width: 40%;
+            height: 9%;
+        }
     }
 
     > .middle {

@@ -25,7 +25,16 @@ const gameStatus = (function(){
 
     const closeBtn = document.querySelector('.close-button')
     closeBtn.addEventListener('click', () => modal.close())
-    
+
+    const startBtn = document.querySelector('.start')
+    startBtn.addEventListener('click', () => gameStatus.placePlayerSymbol())
+
+    const resetBtn = document.querySelector('.reset')
+    resetBtn.addEventListener('click', () => {
+        playerA.resetScore()
+        playerB.resetScore()
+    })
+
     let turnCounter = 0;
     function placePlayerSymbol(){
         gameBoardDOM.forEach((slot, index) => slot.addEventListener('click', function(){
@@ -212,7 +221,6 @@ const gameStatus = (function(){
     return { placePlayerSymbol, checkGameBoardStatus, checkScoreAnnounceWinner }
 })();
 
-gameStatus.placePlayerSymbol();
 
 const gameDisplay = (function(){
     const gameBoardDOM = document.querySelectorAll('.slot')
