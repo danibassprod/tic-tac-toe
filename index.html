@@ -11,14 +11,19 @@
 <body>
     <div class="container">
         <div class="left">
-            
-            <button type="button">Change Player A name</button>
-            <button type="button">Change Player B name</button>
 
             <dialog>
+                <button type="button" class="close-button">X</button>
                 <form action="#" method="dialog">
-                    <label for="user-name">Type the new username</label>
-                    <input type="text" name="name" id="user-name">
+                    <div class="player-a-fcontrol">
+                        <label for="player-a">Player A name:</label>
+                        <input type="text" name="name" id="player-a">
+                    </div>
+
+                    <div class="player-b-fcontrol">
+                        <label for="player-b">Player B name:</label>
+                        <input type="text" name="name" id="player-b">
+                    </div>
                     <div class="form buttons">
                         <button type="reset">Reset</button>
                         <button type="submit">Submit</button>
