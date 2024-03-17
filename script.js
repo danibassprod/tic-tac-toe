@@ -31,8 +31,10 @@ const gameStatus = (function(){
 
     const resetBtn = document.querySelector('.reset')
     resetBtn.addEventListener('click', () => {
+        resetCurrentGame()
         playerA.resetScore()
         playerB.resetScore()
+        gameDisplay.displayScore()
     })
 
     let turnCounter = 0;
@@ -55,15 +57,15 @@ const gameStatus = (function(){
         }))
     }
 
+    // Clears gameboard and resets turn counter.
+    function resetCurrentGame(){
+        gameBoard.gameBoard.fill('')
+        gameBoardDOM.forEach(slot => slot.textContent = '')
+        turnCounter = 0
+    }
+
     function checkGameBoardStatus(){
         
-        // Clears gameboard and resets turn counter.
-        function resetCurrentGame(){
-            gameBoard.gameBoard.fill('')
-            gameBoardDOM.forEach(slot => slot.textContent = '')
-            turnCounter = 0
-        }
-
         // Checks if row A is filled with X or O
         if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[1] === 'X' && gameBoard.gameBoard[2] === 'X') {
             playerA.increaseScore()
@@ -71,6 +73,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[1] === 'O' && gameBoard.gameBoard[2] === 'O'){
             playerB.increaseScore()
@@ -78,6 +81,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Checks row B
@@ -87,6 +91,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[3] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[5] === 'O') {
             playerB.increaseScore()
@@ -94,6 +99,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Checks row C
@@ -103,6 +109,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[6] === 'O' && gameBoard.gameBoard[7] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
@@ -120,6 +127,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
             
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[3] === 'O' && gameBoard.gameBoard[6] === 'O') {
             playerB.increaseScore()
@@ -127,6 +135,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Checks column 2
@@ -137,6 +146,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[1] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[7] === 'O') {
             playerB.increaseScore()
@@ -144,6 +154,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Checks column 3
@@ -154,6 +165,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[2] === 'O' && gameBoard.gameBoard[5] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
@@ -161,6 +173,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Checks for diagonal lines starting from index 0 to 8
@@ -171,6 +184,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[0] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[8] === 'O') {
             playerB.increaseScore()
@@ -178,6 +192,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
 
         // Check for diagonal lines starting from index 2 to 6
@@ -188,6 +203,7 @@ const gameStatus = (function(){
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
 
         } else if (gameBoard.gameBoard[2] === 'O' && gameBoard.gameBoard[4] === 'O' && gameBoard.gameBoard[6] === 'O') {
             playerB.increaseScore()
@@ -195,6 +211,7 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
+            gameDisplay.displayScore()
         }
     }
 
@@ -203,11 +220,11 @@ const gameStatus = (function(){
             console.log('You are tied!')
             playerA.resetScore()
             playerB.resetScore()
-        } else if (playerA.getScore() === 4 && playerA.getScore() > playerB.getScore()) {
+        } else if (playerA.getScore() === 3 && playerA.getScore() > playerB.getScore()) {
             console.log('Player A Wins!')
             playerA.resetScore()
             playerB.resetScore()
-        } else if (playerB.getScore() === 4 && playerB.getScore() > playerA.getScore()) {
+        } else if (playerB.getScore() === 3 && playerB.getScore() > playerA.getScore()) {
             console.log('Player B Wins!')
             playerA.resetScore()
             playerB.resetScore()
@@ -229,5 +246,16 @@ const gameDisplay = (function(){
             currentElement.textContent = gameBoard.gameBoard[currentIndex]
         })
     };
-    return { displayCurrentGameBoard }
+
+    const playerADOM = document.querySelector('.player-a')
+    const playerBDOM = document.querySelector('.player-b')
+
+    function displayScore(){
+        playerADOM.textContent = `Player A: ${playerA.getScore()}`
+        playerBDOM.textContent = `Player B: ${playerB.getScore()}`
+    }
+
+    displayScore()
+
+    return { displayCurrentGameBoard, displayScore }
 })();
