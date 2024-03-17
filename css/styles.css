@@ -128,6 +128,11 @@ dialog::backdrop {
     opacity: 100%;
 }
 
+.winner-modal[open] {
+    display: grid;
+    place-content: center;
+}
+
 form {
     font-family: var(--font-family);
     display: flex;
@@ -167,7 +172,8 @@ input:focus-visible {
     flex-direction: column;
 }
  
-button.close-button {
+button.close-button,
+button.close-btn-winner-modal {
     color: var(--font-color);
     position: absolute;
     left: max(5px, 1.1vw);
@@ -180,7 +186,8 @@ button.close-button {
     background-color: transparent;
 }
 
-.close-button:focus-visible {
+.close-button:focus-visible,
+.close-btn-winner-modal:focus-visible {
     outline: none;
 }
 
