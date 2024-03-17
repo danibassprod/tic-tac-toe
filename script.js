@@ -217,15 +217,14 @@ const gameStatus = (function(){
 
     function checkScoreAnnounceWinner(){
         if (playerA.getScore() === 3 && playerB.getScore() === 3 && playerA.getScore() === playerB.getScore()){
-            console.log('You are tied!')
             playerA.resetScore()
             playerB.resetScore()
         } else if (playerA.getScore() === 3 && playerA.getScore() > playerB.getScore()) {
-            console.log('Player A Wins!')
+            gameDisplay.displayWinnerModal(playerA.name)
             playerA.resetScore()
             playerB.resetScore()
         } else if (playerB.getScore() === 3 && playerB.getScore() > playerA.getScore()) {
-            console.log('Player B Wins!')
+            gameDisplay.displayWinnerModal(playerB.name)
             playerA.resetScore()
             playerB.resetScore()
         }
@@ -235,9 +234,8 @@ const gameStatus = (function(){
 
     const gameBoardDOM = document.querySelectorAll('.slot')
 
-    return { placePlayerSymbol, checkGameBoardStatus, checkScoreAnnounceWinner }
+    return { placePlayerSymbol, checkGameBoardStatus, checkScoreAnnounceWinner, resetCurrentGame }
 })();
-
 
 const gameDisplay = (function(){
     const gameBoardDOM = document.querySelectorAll('.slot')
@@ -257,5 +255,19 @@ const gameDisplay = (function(){
 
     displayScore()
 
-    return { displayCurrentGameBoard, displayScore }
+    const winnerModal = document.querySelector('.winner-modal')
+    const modalHeader = document.querySelector('.winner-modal > h2')
+    const closeBtnWinnerModal = document.querySelector('.close-btn-winner-modal')
+    closeBtnWinnerModal.addEventListener('click', () => winnerModal.close())
+    function displayWinnerModal(winner){
+        modalHeader.textContent = `The winner is: ${winner}!`
+        winnerModal.showModal()
+        // Full reset
+        gameStatus.resetCurrentGame()
+        playerA.resetScore()
+        playerB.resetScore()
+        displayScore()
+    }
+
+    return { displayCurrentGameBoard, displayScore, displayWinnerModal }
 })();
