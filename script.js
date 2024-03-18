@@ -82,10 +82,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Checks row B
-        if (gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[5] === 'X') {
+            // Checks row B
+
+        } else if (gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[5] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -100,10 +100,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Checks row C
-        if (gameBoard.gameBoard[6] === 'X' && gameBoard.gameBoard[7] === 'X' && gameBoard.gameBoard[8] === 'X') {
+            // Checks row C
+
+        } else if (gameBoard.gameBoard[6] === 'X' && gameBoard.gameBoard[7] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -117,11 +117,10 @@ const gameStatus = (function(){
                 alert(`Player B wins! ${playerA.getScore()} - ${playerB.getScore()}`)
                 resetCurrentGame()
             })
-        }
 
-        // Checks column 1
+            // Checks column 1
 
-        if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[6] === 'X') {
+        } else if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[3] === 'X' && gameBoard.gameBoard[6] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -136,11 +135,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Checks column 2
+            // Checks column 2
 
-        if (gameBoard.gameBoard[1] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[7] === 'X') {
+        } else if (gameBoard.gameBoard[1] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[7] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -155,11 +153,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Checks column 3
+            // Checks column 3
 
-        if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[5] === 'X' && gameBoard.gameBoard[8] === 'X') {
+        } else if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[5] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -174,11 +171,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Checks for diagonal lines starting from index 0 to 8
-
-        if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[8] === 'X') {
+            // Checks for diagonal lines starting from index 0 to 8
+            
+        } else if (gameBoard.gameBoard[0] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[8] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
@@ -193,11 +189,10 @@ const gameStatus = (function(){
                 resetCurrentGame()
             })
             gameDisplay.displayScore()
-        }
 
-        // Check for diagonal lines starting from index 2 to 6
-
-        if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[6] === 'X') {
+            // Check for diagonal lines starting from index 2 to 6
+            
+        } else if (gameBoard.gameBoard[2] === 'X' && gameBoard.gameBoard[4] === 'X' && gameBoard.gameBoard[6] === 'X') {
             playerA.increaseScore()
             setTimeout(() => {
                 alert(`Player A wins! ${playerA.getScore()} - ${playerB.getScore()}`)
