@@ -245,12 +245,20 @@ const gameDisplay = (function(){
         })
     };
 
+    const playerNameSubmitBtn = document.querySelector('.submitBtn')
+    playerNameSubmitBtn.addEventListener('click', () => {
+        playerA.name = document.querySelector('#player-a').value
+        playerB.name = document.querySelector('#player-b').value
+        playerADOM.textContent = `${playerA.name}: ${playerA.getScore()}`
+        playerBDOM.textContent = `${playerB.name}: ${playerB.getScore()}`
+    })
+
     const playerADOM = document.querySelector('.player-a')
     const playerBDOM = document.querySelector('.player-b')
 
     function displayScore(){
-        playerADOM.textContent = `Player A: ${playerA.getScore()}`
-        playerBDOM.textContent = `Player B: ${playerB.getScore()}`
+        playerADOM.textContent = `${playerA.name}: ${playerA.getScore()}`
+        playerBDOM.textContent = `${playerB.name}: ${playerB.getScore()}`
     }
 
     displayScore()
